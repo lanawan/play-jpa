@@ -1,0 +1,64 @@
+@(students: List[Student])
+<!-- Контроллер передал список студентов в данное представление -->
+<html>
+    <head>
+        <title>Список студентов</title>
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-10"><h3>Список студентов</h3></div>
+                <div class="col-sm-2">
+                    <!-- Можно использовать динамический URL -->
+                    <button type="button" class="btn btn-info add-new" onClick="window.location.href = '@routes.StudentsController.newStudent()'"><i class="glyphicon glyphicon-plus"></i> Добавить</button>
+                    <!--
+                    Это равнозначно вот такому использованию :
+                    <button type="button" class="btn btn-info add-new" onClick="window.location.href = '/student/new'"><i class="glyphicon glyphicon-plus"></i> Добавить</button>
+                    -->
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table id="mytable" class="table table-bordred table-striped">
+                    <thead>
+                        <tr>
+                            <th>Имя</th>
+                            <th>Фамилия</th>
+                            <th>Возраст</th>
+                            <th width="15%" colspan="2">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Итерация по полученному списку -->
+                        @for(student <- students) {
+                            <tr>
+                                <!-- Вывод свойств каждого объекта в списке -->
+                                <td>@student.getFirstname</td>
+                                <td>@student.getLastname</td>
+                                <td>@student.getAge</td>
+                                <td>
+                                    <p data-placement="top" data-toggle="tooltip" title="Редактировать">
+                                        <button class="btn btn-primary btn-xs" data-title="Редактировать" data-toggle="modal" data-target="#edit" >
+                                            <i class="glyphicon glyphicon-pencil"></i>
+                                        </button>
+                                    </p>
+                                </td>
+                                <td>
+                                    <p data-placement="top" data-toggle="tooltip" title="Удалить">
+                                        <button class="btn btn-danger btn-xs" data-title="Удалить" data-toggle="modal" data-target="#delete" >
+                                            <i class="glyphicon glyphicon-trash"></i>
+                                        </button>
+                                    </p>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

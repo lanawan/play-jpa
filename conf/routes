@@ -1,0 +1,10 @@
+# При запуске приложения страница по умолчанию
+GET     /                           controllers.StudentsController.index()
+# Страница "список всех студентов"
+GET     /student                    controllers.StudentsController.getAllStudentsList()
+# Страница "добавить студента"
+GET     /student/new                controllers.StudentsController.newStudent(request: Request)
+# Запрос на добавление (валидация формы на странице "добавить студента")
+POST    /student                    controllers.StudentsController.addStudent(request: Request)
+# Всегда обязательный URL для использования всех внешних рессурсов, как, например, css, js, img
+GET     /versionedAssets/*file      controllers.Assets.versioned(path="/public", file: Asset)

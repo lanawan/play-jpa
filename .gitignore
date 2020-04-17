@@ -1,0 +1,12 @@
+logs
+target
+build
+null
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.gradle
+/.settings
+/RUNNING_PID
+/project/target/
