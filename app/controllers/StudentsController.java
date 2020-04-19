@@ -6,22 +6,22 @@ import play.libs.concurrent.HttpExecutionContext;
 import play.mvc.Controller;
 import play.mvc.Http;
 import play.mvc.Result;
-import service.IStudentsService;
+import service.StudentRepository;
 
 import javax.inject.Inject;
 import java.util.concurrent.CompletionStage;
 
 public class StudentsController extends Controller {
-    private IStudentsService studentsService;
+    private StudentRepository studentRepository;
     private HttpExecutionContext httpExecutionContext;
     private FormFactory formFactory;
 
     @Inject
     public StudentsController(FormFactory formFactory,
-                              IStudentsService studentsService,
+                              StudentRepository studentRepository,
                               HttpExecutionContext httpExecutionContext) {
         this.formFactory = formFactory;
-        this.studentsService = studentsService;
+        this.studentRepository = studentRepository;
         this.httpExecutionContext = httpExecutionContext;
     }
 
@@ -35,13 +35,13 @@ public class StudentsController extends Controller {
 
     public CompletionStage<Result> addStudent(Http.Request request) {
         Student student = formFactory.form(Student.class).bindFromRequest(request).get();
-        return studentsService
+        return studentRepository
                 .addStudent(student)
                 .thenApplyAsync(p -> ok("User created"), httpExecutionContext.current());
     }
 
     public CompletionStage<Result> getAllStudentsList() {
-        return studentsService
+        return studentRepository
                 .getAllStudents()
                 .thenApplyAsync(list -> {
                     return ok(views.html.students.render(list));

@@ -8,7 +8,8 @@ import java.util.concurrent.CompletionStage;
 
 // В Play нужно четко указать класс-реализатор интерфейса. Иначе интерфейс нельзя будет инжектить в контроллере
 @ImplementedBy(StudentsServiceImpl.class)
-public interface IStudentsService {
+public interface StudentRepository {
     CompletionStage<Student> addStudent(Student student);
+
     CompletionStage<List<Student>> getAllStudents();
 }

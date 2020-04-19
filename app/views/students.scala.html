@@ -4,10 +4,11 @@
     <head>
         <title>Список студентов</title>
         <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/favicon.png")">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -42,15 +43,15 @@
                                 <td>@student.getAge</td>
                                 <td>
                                     <p data-placement="top" data-toggle="tooltip" title="Редактировать">
-                                        <button class="btn btn-primary btn-xs" data-title="Редактировать" data-toggle="modal" data-target="#edit" >
-                                            <i class="glyphicon glyphicon-pencil"></i>
+                                        <button class="btn btn-primary btn-default" data-title="Редактировать" data-toggle="modal" data-target="#edit" >
+                                            <span class="glyphicon glyphicon-pencil"></span>
                                         </button>
                                     </p>
                                 </td>
                                 <td>
                                     <p data-placement="top" data-toggle="tooltip" title="Удалить">
-                                        <button class="btn btn-danger btn-xs" data-title="Удалить" data-toggle="modal" data-target="#delete" >
-                                            <i class="glyphicon glyphicon-trash"></i>
+                                        <button class="btn btn-danger btn-default" data-title="Удалить" data-toggle="modal" data-target="#delete" >
+                                            <span class="glyphicon glyphicon-trash"></span>
                                         </button>
                                     </p>
                                 </td>

@@ -13,7 +13,7 @@ import java.util.function.Function;
 
 import static java.util.concurrent.CompletableFuture.supplyAsync;
 
-public class StudentsServiceImpl implements IStudentsService {
+public class StudentsServiceImpl implements StudentRepository {
     private JPAApi jpaApi;
     private DatabaseExecutionContext executionContext;
 
@@ -44,6 +44,7 @@ public class StudentsServiceImpl implements IStudentsService {
 
     private Student insert(EntityManager em, Student student) {
         em.persist(student);
+        student.setAge(0);
         return student;
     }
 
