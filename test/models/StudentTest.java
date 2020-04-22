@@ -38,7 +38,7 @@ import static play.mvc.Http.Status.OK;
 public class StudentTest {
     private FormFactory formFactory = mock(FormFactory.class);
     private StudentRepository studentRepository = mock(StudentRepository.class);
-    ;
+
     private StudentsServiceImpl studentsServiceImpl;
     private HttpExecutionContext ec = new HttpExecutionContext(ForkJoinPool.commonPool());
     // Тестовые данные студента

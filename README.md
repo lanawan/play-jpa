@@ -8,16 +8,7 @@
 * асинхронные операции
 * форма в представлении цепляющая bean для операции create
 
-Для работы необходимо установить Postgres сделать новую базу play и сделать следующую таблицу в схеме public :
-
-	CREATE TABLE public.student
-	(
-		id integer NOT NULL,
-		firstname character varying(50) COLLATE pg_catalog."default",
-		lastname character varying(50) COLLATE pg_catalog."default",
-		age integer,
-		CONSTRAINT student_pkey PRIMARY KEY (id)
-	)
+Для работы необходимо установить Postgres сделать новую базу play в схеме public
 	
 
 Для подключения базы необходимо изменить datasource в файле /conf/application.conf следующее :
@@ -35,7 +26,10 @@
 * libraryDependencies += "org.hibernate" % "hibernate-core" % "5.4.14.Final"
 Опционально изменить версии подключаемых библиотек.
 
-
+Этот вебинар на youtube в 3-х частях :
+<a href="https://youtu.be/Kdmuq4JysMA" target="_blank">Часть 1</a>
+<a href="https://youtu.be/95fytTToHA4" target="_blank">Часть 2</a>
+<a href="https://youtu.be/eVM7cpDvxhA" target="_blank">Часть 3</a>
 
 Детальная документация :
 

@@ -44,7 +44,6 @@ public class StudentsServiceImpl implements StudentRepository {
 
     private Student insert(EntityManager em, Student student) {
         em.persist(student);
-        student.setAge(0);
         return student;
     }
 
