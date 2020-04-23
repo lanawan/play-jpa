@@ -1,8 +1,7 @@
-package models;
-
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;
 import controllers.StudentsController;
+import models.Student;
 import org.hibernate.validator.messageinterpolation.ParameterMessageInterpolator;
 import org.junit.Test;
 import play.data.format.Formatters;
